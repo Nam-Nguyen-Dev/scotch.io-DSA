@@ -11,7 +11,34 @@ than 1(index 0), but less than 2(index 1).
 
 function whereIBelong(arr, num) {
    // Code goes here
+   /* arr.push(num)
+   return arr.sort((a,b) => a-b).indexOf(num) */
 
+   //Using for loop
+   /* arr.sort((a,b) => a-b)
+   for (let i = 0; i < arr.length; i++){
+      if(arr[i] >= num){
+         return i
+      }
+   }
+   return arr.length */
+
+   //Using for-loop for iteration but follow different approach
+   /* let counter = 0
+    for (let i = 0; i < arr.length; i++) {
+        if (num > arr[i]) {
+            counter++;
+        }
+    } 
+    return counter */
+
+    //Using while loop
+    arr.sort((a,b) => a-b)
+    let counter = 0
+    while(num > arr[counter]){
+      counter++
+    }
+    return counter
 }
 
 
