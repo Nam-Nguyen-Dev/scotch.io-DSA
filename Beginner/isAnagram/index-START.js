@@ -9,6 +9,35 @@ don't. E.g
 
 function isAnagram(stringA, stringB) {
     // Code goes here
+
+    /* if (stringA.length != stringB.length){
+        return false
+    }
+    return stringA.split("").sort().join("") === stringB.split("").sort().join("") */
+
+    //Using charMap
+
+    function charMap(str) {
+        let obj = {}
+        for(const char of str){
+            obj[char] = obj[char]+1 || 1
+        }
+        return obj
+    }
+
+    let stringAMap = charMap(stringA)
+    let stringBMap = charMap(stringB)
+
+    if (stringA.length === stringB.length){
+        for(keys in stringAMap){
+            if (stringAMap[keys] !== stringBMap[keys]){
+                return false
+            } 
+        }
+        return true
+    } else {
+        return flase
+    }
 }
 
 
